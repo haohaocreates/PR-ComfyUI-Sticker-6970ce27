@@ -29,11 +29,8 @@ class ImageToSticker:
 
     def remove_background(self, image):
         image = pil2tensor(remove(tensor2pil(image)))
-        # 创建一个黑色背景的同样大小的图像
-        black_bg = Image.new('RGB', image.size, color = (0, 0, 0))
-        # 将原始图像粘贴到黑色背景上
-        black_bg.paste(image, image.size, image)
-        return (black_bg,)
+        image.convert('RGB')
+        return (image,)
 
 
 # A dictionary that contains all nodes you want to export with their names
