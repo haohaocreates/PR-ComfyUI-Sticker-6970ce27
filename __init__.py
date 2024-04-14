@@ -28,8 +28,7 @@ class ImageToSticker:
     CATEGORY = "image"
 
     def remove_background(self, image):
-        image = pil2tensor(remove(tensor2pil(image)))
-        image.convert('RGB')
+        image = pil2tensor(remove(tensor2pil(image)).convert('RGB'))
         return (image,)
 
 
