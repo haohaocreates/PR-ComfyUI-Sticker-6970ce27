@@ -78,9 +78,12 @@ class ImageToSticker:
     CATEGORY = "image"
 
     def remove_background(self, image, stroke_width):
-        pure_image = remove(tensor2pil(image));
-        white_storke_image = add_white_stroke(pure_image, stroke_width);
-        image = pil2tensor(white_storke_image.convert('RGB'))
+        pure_image = remove(tensor2pil(image))
+        white_storke_image = add_white_stroke(pure_image, stroke_width)
+        if(stroke_width == 0)
+            image = pil2tensor(pure_image.convert('RGB'))
+        else
+            image = pil2tensor(white_storke_image.convert('RGB'))
         return (image,)
 
 
