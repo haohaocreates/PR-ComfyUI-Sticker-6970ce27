@@ -79,13 +79,12 @@ class ImageToSticker:
 
     def remove_background(self, image, stroke_width):
         pure_image = remove(tensor2pil(image))
-        white_storke_image = add_white_stroke(pure_image, stroke_width)
-        if(stroke_width == 0)
+        if stroke_width == 0
             image = pil2tensor(pure_image.convert('RGB'))
         else
+            white_storke_image = add_white_stroke(pure_image, stroke_width)
             image = pil2tensor(white_storke_image.convert('RGB'))
         return (image,)
-
 
 # A dictionary that contains all nodes you want to export with their names
 # NOTE: names should be globally unique
