@@ -63,6 +63,13 @@ class ImageToSticker:
         return {
             "required": {
                 "image": ("IMAGE",),
+                "stroke_width": ("INT", {
+                    "default": 0, 
+                    "min": 0, #Minimum value
+                    "max": 64, #Maximum value
+                    "step": 1, #Slider's step
+                    "display": "number" # Cosmetic only: display as "number" or "slider"
+                }),
             },
         }
 
@@ -70,9 +77,9 @@ class ImageToSticker:
     FUNCTION = "remove_background"
     CATEGORY = "image"
 
-    def remove_background(self, image):
+    def remove_background(self, image, stroke_width):
         pure_image = remove(tensor2pil(image));
-        white_storke_image = add_white_stroke(pure_image, stroke_width = 20);
+        white_storke_image = add_white_stroke(pure_image, stroke_width);
         image = pil2tensor(white_storke_image.convert('RGB'))
         return (image,)
 
