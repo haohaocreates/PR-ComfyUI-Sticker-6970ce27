@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-sticker"
+description = "image to sticker"
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["rembg"]
+
+[project.urls]
+Repository = "https://github.com/turkyden/ComfyUI-Sticker"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-Sticker"
+Icon = ""
